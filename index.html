@@ -3,6 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @font-face {
+    	font-family: "YuGothic-M";
+    	font-weight: normal;
+    	 src: local("YuGothic-Medium"),
+    		  local("Yu Gothic Medium"),
+    		  local("YuGothic-Regular");
+    }
+    
+    @font-face {
+    	font-family: "YuGothic-M";
+    	font-weight: bold;
+    	 src: local("YoGothic-Bold"),
+    		  local("Yu Gothic");
+    }
+    
+    html {
+    	font-size: 62.5%;/* 16px x 0.625 = 10px(=1rem) */
+    }
+    
+    body {
+    	font-size: 1.6rem;/* 16px */
+    	font-family: -apple-system, blinkMacSystemFont, YuGothic-M, YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    	-webkit-text-size-adjust: 100%;
+    	font-feature-settings: "palt";
+    }
+    
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+    	::i-block-chrome, body {
+    		font-feature-settings: "pkna";
+    	}
+    }
+  </style>
   <title>Language Quiz</title>
   <link rel="stylesheet" href="style.css">
 </head>
