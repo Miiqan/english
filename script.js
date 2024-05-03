@@ -77,6 +77,7 @@ function nextQuestion() {
   } else {
     showQuestion();
   }
+  updateScore();
 }
 
 // Function to display the final results
@@ -86,9 +87,13 @@ function showResults() {
   document.getElementById("correct-count").textContent = correctAnswers;
   document.getElementById("percentage").textContent =
     ((correctAnswers / csvData.length) * 100).toFixed(2) + "%";
+  // Disable further interaction after results are shown
+  document.querySelectorAll(".modes button, #check-answer, #next-question").forEach(
+    (button) => (button.disabled = true)
+  );
 }
 
-// Event listeners
+// Add event listeners
 document.querySelectorAll(".modes button").forEach(button => {
   button.addEventListener("click", () => {
     button.classList.add("active");
@@ -98,6 +103,29 @@ document.querySelectorAll(".modes button").forEach(button => {
 
 document.getElementById("check-answer").addEventListener("click", checkAnswer);
 document.getElementById("next-question").addEventListener("click", nextQuestion);
+document.getElementById("exit-quiz").addEventListener("click", exitQuiz);
+
+// Function to exit the quiz
+function exitQuiz() {
+  showResults(); // Display final results immediately
+}
+
+// Update score display on answer check
+function updateScore() {
+  document.getElementById("correct-count").textContent = correctAnswers;
+  document.getElementById("total-questions").textContent = csvData.length;
+}
+
+// Check for completion after each question
+function nextQuestion() {
+  // ... (same logic as before)
+  if (currentQuestionIndex >= csvData.length) {
+    showResults();
+  } else {
+    showQuestion();
+  }
+  updateScore();
+}
 
 // Load CSV data on page load
 loadCSV();
