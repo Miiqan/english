@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Language Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Language Quiz</h1>
+    <div class="modes">
+      <button id="jpn-to-eng">Japanese to English</button>
+      <button id="eng-to-jpn">English to Japanese</button>
+      <button id="abbr-to-jpn">Abbreviation from Japanese</button>
+      <button id="abbr-to-eng">Abbreviation from English</button>
+      <button id="eng-from-abbr">English from Abbreviations</button>
+      <button id="jpn-from-abbr">Japanese from Abbreviations</button>
+    </div>
+    <div id="quiz-area" class="hidden">
+      <p id="question"></p>
+      <input type="text" id="answer">
+      <button id="check-answer">Check Answer</button>
+      <p id="feedback"></p>
+      <button id="next-question">Next Question</button>
+    </div>
+    <div id="results" class="hidden">
+      <h2>Results</h2>
+      <p>Correct answers: <span id="correct-count"></span></p>
+      <p>Percentage: <span id="percentage"></span></p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
