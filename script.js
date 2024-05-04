@@ -5,7 +5,7 @@ let correctAnswers = 0;
 
 // Function to load CSV data
 function loadCSV() {
-  fetch("./data.csv") // Replace "data.csv" with your actual file path
+  fetch("data.csv") // Replace "data.csv" with your actual file path
     .then(response => response.text())
     .then(data => {
       const lines = data.split("\n");
@@ -40,7 +40,16 @@ function showQuestion() {
     case "abbr-to-jpn":
       document.getElementById("question").textContent = question.abbreviation;
       break;
-    // ... add similar cases for other modes
+    case "abbr-to-eng":
+      document.getElementById("question").textContent = question.abbreviation;
+      break;
+    case "eng-from-abbr":
+      document.getElementById("question").textContent = question.abbreviation;
+      break;
+    case "jpn-from-abbr":
+      document.getElementById("question").textContent = question.abbreviation;
+      break;
+    // ... add similar cases for other modes (if needed)
   }
   document.getElementById("answer").value = "";
   document.getElementById("feedback").textContent = "";
@@ -58,7 +67,19 @@ function checkAnswer() {
     case "eng-to-jpn":
       isCorrect = answer === question.japanese.toLowerCase();
       break;
-    // ... add similar cases for other modes
+    case "abbr-to-jpn":
+      isCorrect = answer === question.japanese.toLowerCase();
+      break;
+    case "abbr-to-eng":
+      isCorrect = answer === question.english.toLowerCase();
+      break;
+    case "eng-from-abbr":
+      isCorrect = answer === question.english.toLowerCase();
+      break;
+    case "jpn-from-abbr":
+      isCorrect = answer === question.japanese.toLowerCase();
+      break;
+    // ... add similar cases for other modes (if needed)
   }
   if (isCorrect) {
     correctAnswers++;
