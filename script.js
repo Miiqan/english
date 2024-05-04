@@ -15,14 +15,12 @@ function loadCSV() {
       });
       // Shuffle the data for random order
       csvData.sort(() => Math.random() - 0.5);
-      startQuiz();
     });
 }
 
 // Function to start the quiz based on chosen mode
 function startQuiz() {
   currentMode = document.querySelector(".modes button.active")?.id;
-  document.querySelector(".modes").classList.add("hidden");
   document.getElementById("quiz-area").classList.remove("hidden");
   showQuestion();
 }
@@ -53,6 +51,7 @@ function showQuestion() {
   }
   document.getElementById("answer").value = "";
   document.getElementById("feedback").textContent = "";
+  document.getElementById("next-question").classList.add("hidden"); // Hide next question button
 }
 
 // Function to check the answer
@@ -88,6 +87,7 @@ function checkAnswer() {
     document.getElementById("feedback").textContent =
       `Incorrect. The correct answer is: ${question.english}`;
   }
+  document.getElementById("next-question").classList.remove("hidden"); // Show next question button
 }
 
 // Function to move to the next question
